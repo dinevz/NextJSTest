@@ -25,6 +25,9 @@ export const StyledTextContainer = styled(({ ...props }) => <div {...props} />)`
   color: black;
   font-family: sans-serif;
   text-align: center;
+  @media (max-width: 1024px) {
+    margin-bottom: 2rem;
+  };
 `;
 
 export const StyledCardsContainer = styled(({ ...props }) => <div {...props} />)`
@@ -35,13 +38,12 @@ export const StyledCardsContainer = styled(({ ...props }) => <div {...props} />)
 `;
 export const StyledCard = styled((props) => <Card {...props} />)`
     width: ${({ width }) => width}px;
-    border: ${({ active }) => active === 'true' ? '2px solid #006EFD' : '' }
+    border: ${({ active }) => active === 'true' ? '2px solid #006EFD' : '' };
+    @media (max-width: 1024px) {
+      margin-bottom: 2rem;
+    }
 `;
-export const StyledPitchCard = styled((props) => <Card {...props} />)`
-  width: 450px;
-  border: 2px solid #006EFD;
-  
-`;
+
 export const StyledCardsImageWrapper = styled(({ ...props }) => <div {...props} />)`
   display: flex;
   width: 80%;
@@ -49,7 +51,11 @@ export const StyledCardsImageWrapper = styled(({ ...props }) => <div {...props} 
   background-size: contain;
   background-repeat: no-repeat;
   justify-content: center;
-
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 export const StyledVideoImageContainer = styled(({ ...props }) => <div {...props} />)`
@@ -58,6 +64,9 @@ export const StyledVideoImageContainer = styled(({ ...props }) => <div {...props
   margin-right: 4rem;
   width: 100%;
   height: 100%;
+  @media (max-width: 1024px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const StyledCardImageContainer = styled(({ ...props }) => <div {...props} />)`
