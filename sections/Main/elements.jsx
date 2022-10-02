@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { SectionContainer, SectionHeading, SectionSubheading } from "~/components";
 import { Card } from "../../collections/Card/Card";
 
-export const StyledContainer = styled(({ height, ...props }) => <SectionContainer {...props} />)`
+export const StyledContainer = styled(({...props }) => <SectionContainer {...props} />)`
   align-items: center;
   flex-direction: column;
 `;
