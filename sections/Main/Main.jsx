@@ -8,15 +8,31 @@ import {
   StyledVideoImageContainer,
   StyledCardsImageWrapper,
   StyledCardsContainer,
-  StyledBriefCard,
-  StyledSearchCard,
-  StyledPitchCard,
+  StyledCard,
   StyledCardImageContainer,
   StyledCardTextContainer,
   StyledCardTitle,
   StyledCardDescription,
-  StyledPitchTitle,
 } from "./elements";
+
+const StyledCardContainer = ({ card, width=0, active="false" }) => {
+  return (
+  <StyledCard width={width} active={active}>
+    <StyledCardImageContainer>
+      <Image 
+        layout="responsive" 
+        src={card.img.src} 
+        alt={card.img.alt} 
+        width={card.img.width} 
+        height={card.img.height} />
+    </StyledCardImageContainer>
+    <StyledCardTextContainer>
+      <StyledCardTitle active={active}>{card.title}</StyledCardTitle>
+      <StyledCardDescription>{card.description}</StyledCardDescription>
+    </StyledCardTextContainer>
+  </StyledCard>
+  )
+}
 
 export const Main = ({ image, title, description, briefCard, searchCard, pitchCard, ...props }) => {
   return (
@@ -30,33 +46,9 @@ export const Main = ({ image, title, description, briefCard, searchCard, pitchCa
           <Image layout="responsive" src={image.src} alt={image.alt} width={image.width} height={image.height} />
         </StyledVideoImageContainer>
         <StyledCardsContainer>
-          <StyledBriefCard>
-            <StyledCardImageContainer>
-              <Image layout="responsive" src={briefCard.img.src} alt={briefCard.img.alt} width={briefCard.img.width} height={briefCard.img.height} />
-            </StyledCardImageContainer>
-            <StyledCardTextContainer>
-              <StyledCardTitle>{briefCard.title}</StyledCardTitle>
-              <StyledCardDescription>{briefCard.description}</StyledCardDescription>
-            </StyledCardTextContainer>
-          </StyledBriefCard>
-          <StyledSearchCard>
-            <StyledCardImageContainer>
-              <Image layout="responsive" src={searchCard.img.src} alt={searchCard.img.alt} width={searchCard.img.width} height={searchCard.img.height} />
-            </StyledCardImageContainer>
-            <StyledCardTextContainer>
-              <StyledCardTitle>{searchCard.title}</StyledCardTitle>
-              <StyledCardDescription>{searchCard.description}</StyledCardDescription>
-            </StyledCardTextContainer>
-          </StyledSearchCard>
-          <StyledPitchCard>
-            <StyledCardImageContainer>
-              <Image layout="responsive" src={pitchCard.img.src} alt={pitchCard.img.alt} width={pitchCard.img.width} height={pitchCard.img.height} />
-            </StyledCardImageContainer>
-            <StyledCardTextContainer>
-              <StyledCardTitle><StyledPitchTitle>{pitchCard.title}</StyledPitchTitle></StyledCardTitle>
-              <StyledCardDescription>{pitchCard.description}</StyledCardDescription>
-            </StyledCardTextContainer>
-          </StyledPitchCard>
+          <StyledCardContainer card={briefCard} width={briefCard.width} />
+          <StyledCardContainer card={searchCard} width={searchCard.width} />
+          <StyledCardContainer card={pitchCard} width={pitchCard.width} active="true"/>
         </StyledCardsContainer>
       </StyledCardsImageWrapper>
     </StyledContainer>

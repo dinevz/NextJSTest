@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { SectionContainer, SectionHeading, SectionSubheading } from "~/components";
 import { Card } from "../../collections/Card/Card";
 
@@ -33,11 +33,9 @@ export const StyledCardsContainer = styled(({ ...props }) => <div {...props} />)
   justify-content: space-evenly;
 
 `;
-export const StyledBriefCard = styled((props) => <Card {...props} />)`
-  
-`;
-export const StyledSearchCard = styled((props) => <Card {...props} />)`
-  width: 425px;
+export const StyledCard = styled((props) => <Card {...props} />)`
+    width: ${({ width }) => width}px;
+    border: ${({ active }) => active === 'true' ? '2px solid #006EFD' : '' }
 `;
 export const StyledPitchCard = styled((props) => <Card {...props} />)`
   width: 450px;
@@ -80,10 +78,7 @@ export const StyledCardTitle = styled((props) => <SectionHeading {...props} />)`
   line-height: 1rem;
   height: auto;
   margin-bottom: 0.5rem;
-`
-export const StyledPitchTitle = styled((props) => <StyledCardTitle {...props} />)`
-  color: #006EFD;
-  text-decoration: underline;
+  ${({ active }) => active === 'true' && `color: #006EFD; text-decoration: underline;` }
 `
 
 export const StyledCardDescription = styled((props) => <SectionSubheading {...props} />)`

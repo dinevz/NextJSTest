@@ -1,7 +1,7 @@
 // Styled elements for the Card go here
 import styled from "styled-components";
 
-export const StyledCard = styled(({ topMargin = 0, bottomMargin = 0, ...props }) => <div {...props} />)`
+export const StyledCard = styled(({...props }) => <div {...props} />)`
   display: flex;
   width: 400px;
   height: 130px;

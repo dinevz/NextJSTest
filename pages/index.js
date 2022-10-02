@@ -14,17 +14,20 @@ const mainProps = {
   briefCard: { 
     img: { src: "/img/briefIcon.png", alt: "", width: 100, height: 100}, 
     title: "Brief", 
-    description: <>Complete <strong>brief writing or simple guidance</strong> on what to include, we've got you covered.</> 
+    description: <>Complete <strong>brief writing or simple guidance</strong> on what to include, we've got you covered.</>,
+    width: 400, 
   },
   searchCard: {
     img: { src: "/img/searchIcon.png", alt: "", width: 100, height: 100 },
     title: "Search",
-    description: <>In-depth agency search covering; <strong>criteria matching</strong>, door knocking and due-dilligence vetting.</>
+    description: <>In-depth agency search covering; <strong>criteria matching</strong>, door knocking and due-dilligence vetting.</>,
+    width: 425,
   },
   pitchCard: {
     img: { src: "/img/pitchIcon.png", alt: "", width: 100, height: 100 },
     title: "Pitch",
-    description: <>Comprehensive <strong>pitch management</strong>, including comms, diary management and pitch hosting.</>
+    description: <>Comprehensive <strong>pitch management</strong>, including comms, diary management and pitch hosting.</>,
+    width: 450,
   },
 };
 
