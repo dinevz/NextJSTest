@@ -24,7 +24,9 @@ export const Main = ({ image, title, description, cards, ...props }) => {
           <Image layout="responsive" src={image.src} alt={image.alt} width={image.width} height={image.height} />
         </StyledVideoImageContainer>
         <StyledCardsContainer>
-          {cards.map((card, i) => <StyledCardContainer key={i} card={card} width={card.width} />)}
+          {cards.map((card, i) => 
+          <StyledCardContainer key={i} img={card.img} title={card.title} description={card.description} width={card.width} />
+          )}
         </StyledCardsContainer>
       </StyledCardsImageWrapper>
     </StyledContainer>
