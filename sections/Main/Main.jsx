@@ -7,34 +7,12 @@ import {
   StyledDescription,
   StyledVideoImageContainer,
   StyledCardsImageWrapper,
+  StyledCardContainer,
   StyledCardsContainer,
-  StyledCard,
-  StyledCardImageContainer,
-  StyledCardTextContainer,
-  StyledCardTitle,
-  StyledCardDescription,
 } from "./elements";
 
-const StyledCardContainer = ({ card, width=0, active="false" }) => {
-  return (
-  <StyledCard width={width} active={active}>
-    <StyledCardImageContainer>
-      <Image 
-        layout="responsive" 
-        src={card.img.src} 
-        alt={card.img.alt} 
-        width={card.img.width} 
-        height={card.img.height} />
-    </StyledCardImageContainer>
-    <StyledCardTextContainer>
-      <StyledCardTitle active={active}>{card.title}</StyledCardTitle>
-      <StyledCardDescription>{card.description}</StyledCardDescription>
-    </StyledCardTextContainer>
-  </StyledCard>
-  )
-}
 
-export const Main = ({ image, title, description, briefCard, searchCard, pitchCard, ...props }) => {
+export const Main = ({ image, title, description, cards, ...props }) => {
   return (
     <StyledContainer {...props}>
       <StyledTextContainer>
@@ -46,9 +24,7 @@ export const Main = ({ image, title, description, briefCard, searchCard, pitchCa
           <Image layout="responsive" src={image.src} alt={image.alt} width={image.width} height={image.height} />
         </StyledVideoImageContainer>
         <StyledCardsContainer>
-          <StyledCardContainer card={briefCard} width={briefCard.width} />
-          <StyledCardContainer card={searchCard} width={searchCard.width} />
-          <StyledCardContainer card={pitchCard} width={pitchCard.width} active="true"/>
+          {cards.map((card, i) => <StyledCardContainer key={i} card={card} width={card.width} />)}
         </StyledCardsContainer>
       </StyledCardsImageWrapper>
     </StyledContainer>
